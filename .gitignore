@@ -2,4 +2,5 @@ nohup.out
 search.db
 metadata_nginx.conf
 uwsgi_config.ini
-../*/__pycache__
+*/__pycache__/
+__pycache__/
