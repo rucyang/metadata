@@ -1,0 +1,315 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block title %} 档案资源管理 - 档案资源编辑 {% endblock %}
+{% block page_title %} 档案资源编辑 {% endblock %}
+{% block page_content %}
+<style type="text/css">
+    label {font-weight:1; font-size:13px; display: inline}
+    .form-control {height:30px; font-size:12px; padding:4px 12px}
+    .sub-class {text-align:left; font-size:1em}
+
+</style>
+<div class="col-md-12" >
+
+    <form action="{{ url_for('main.edit_file', ID=ID) }}" method="POST" role="form" class="admin-form form-horizontal" enctype="multipart/form-data">
+    {{ form.csrf_token }}
+        <div class="cok-md-12">
+            <div class="form-group">
+                <label for="file_path" class="col-md-2 control-label" style="text-align:left; font-size:1.2em">{{ form.file_name.label(class="sub-class") }}</label>
+                <div class="col-md-4">
+                  {{ form.file_name(class="form-control", disabled="disabled") }}
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="col-md-6">
+
+            <div class="form-group">
+                <label class="col-md-12 control-label" style="text-align:left; font-size:1.5em">档案资源内容特征</label>
+                <label class="col-md-12 control-label" style="text-align:left; font-size:1.2em">题名（Title）：</label>
+            </div>
+
+            <div class="form-group">
+                <label for="title" class="col-md-3 control-label">{{ form.title_proper.label }}
+                    <!--<strong style="color: red">*</strong>-->
+                </label>
+                <div class="col-md-9">
+                  {{ form.title_proper(class="form-control") }}
+                </div>
+                <div class="col-md-offset-3 col-md-9">
+                  <strong style="color: red">{{ form.title_proper.errors[0] }}</strong>
+                </div>
+
+                <label for="title" class="col-md-3 control-label">{{ form.title_parallel.label }}</label>
+                <div class="col-md-9">
+                  {{ form.title_parallel(class="form-control") }}
+                </div>
+                <div class="col-md-offset-3 col-md-9">
+                  <strong style="color: red">{{ form.title_parallel.errors[0] }}</strong>
+                </div>
+
+                <label for="title" class="col-md-3 control-label">{{ form.title_sub.label }}</label>
+                <div class="col-md-9">
+                  {{ form.title_sub(class="form-control") }}
+                </div>
+                <div class="col-md-offset-3 col-md-9">
+                  <strong style="color: red">{{ form.title_sub.errors[0] }}</strong>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-12 control-label" style="text-align:left; font-size:1.2em">主题或关键字（Subject and Key Words）：</label>
+            </div>
+
+            <div class="form-group">
+                <label for="keyword" class="col-md-3 control-label">{{ form.key_who.label }}</label>
+                <div class="col-md-9">
+                  {{ form.key_who(class="form-control") }}
+                </div>
+                <div class="col-md-offset-3 col-md-9">
+                  <strong style="color: red">{{ form.key_who.errors[0] }}</strong>
+                </div>
+
+                <label for="keyword" class="col-md-3 control-label">{{ form.key_why.label }}</label>
+                <div class="col-md-9">
+                  {{ form.key_why(class="form-control") }}
+                </div>
+                <div class="col-md-offset-3 col-md-9">
+                  <strong style="color: red">{{ form.key_why.errors[0] }}</strong>
+                </div>
+
+                <label for="keyword" class="col-md-3 control-label">{{ form.key_when.label }}</label>
+                <div class="col-md-9">
+                  {{ form.key_when(class="form-control") }}
+                </div>
+                <div class="col-md-offset-3 col-md-9">
+                  <strong style="color: red">{{ form.key_when.errors[0] }}</strong>
+                </div>
+
+                <label for="keyword" class="col-md-3 control-label">{{ form.key_where.label }}</label>
+                <div class="col-md-9">
+                  {{ form.key_where(class="form-control") }}
+                </div>
+                <div class="col-md-offset-3 col-md-9">
+                  <strong style="color: red">{{ form.key_where.errors[0] }}</strong>
+                </div>
+
+                <label for="keyword" class="col-md-3 control-label">{{ form.key_how.label }}</label>
+                <div class="col-md-9">
+                  {{ form.key_how(class="form-control") }}
+                </div>
+                <div class="col-md-offset-3 col-md-9">
+                  <strong style="color: red">{{ form.key_how.errors[0] }}</strong>
+                </div>
+
+                <label for="keyword" class="col-md-3 control-label">{{ form.key_what.label }}</label>
+                <div class="col-md-9">
+                  {{ form.key_what(class="form-control") }}
+                </div>
+                <div class="col-md-offset-3 col-md-9">
+                  <strong style="color: red">{{ form.key_what.errors[0] }}</strong>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="archive_num" class="col-md-3 control-label" style="text-align:left;font-size:1.2em">{{ form.archive_num.label(class="sub-class") }}</label>
+                <div class="col-md-9">
+                  {{ form.archive_num(class="form-control") }}
+                </div>
+                <div class="col-md-offset-3 col-md-9">
+                  <strong style="color: red">{{ form.archive_num.errors[0] }}</strong>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-12 control-label" style="text-align:left; font-size:1.2em">说明（Description）：</label>
+            </div>
+
+            <div class="form-group">
+                <label for="description" class="col-md-3 control-label">{{ form.annotation.label }}</label>
+                <div class="col-md-9">
+                  {{ form.annotation(class="form-control", rows=4) }}
+                </div>
+                <label for="description" class="col-md-3 control-label">{{ form.summary.label }}</label>
+                <div class="col-md-9">
+                  {{ form.summary(class="form-control", rows=4) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-12 control-label" style="text-align:left; font-size:1.2em">出处（Source）：</label>
+            </div>
+
+            <div class="form-group">
+
+                <label for="dossier" class="col-md-3 control-label">{{ form.dossier.label }}</label>
+                <div class="col-md-7">
+                  {{ form.dossier(class="form-control") }}
+                </div>
+                <div class="col-md-2">
+                    <a id="modal-372080" href="#modal-container-372080" role="button" class="btn" data-toggle="modal">新增</a>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="language" class="col-md-3 control-label" style="text-align:left; font-size:1.2em">{{ form.language.label(class="sub-class")}}</label>
+                <div class="col-md-9">
+                  {{ form.language(class="form-control") }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="relation" class="col-md-3 control-label" style="text-align:left; font-size:1.2em">{{ form.relation_name.label(class="sub-class") }}</label>
+                <div class="col-md-9">
+                  {{ form.relation_name(class="form-control", disabled="disabled") }}
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="form-group">
+                <label class="col-md-12 control-label" style="text-align:left; font-size:1.2em">范围（Coverage）：</label>
+            </div>
+
+            <div class="form-group">
+                <label for="archive_path" class="col-md-3 control-label">{{ form.archive_guide.label }}</label>
+                <div class="col-md-9">
+                  {{ form.archive_guide(class="form-control") }}
+                </div>
+
+                <label for="dossier_guide" class="col-md-3 control-label">{{ form.dossier_guide.label }}</label>
+                <div class="col-md-9">
+                  {{ form.dossier_guide(class="form-control") }}
+                </div>
+
+                <label for="dossier_guide" class="col-md-3 control-label">{{ form.coverage_note.label }}</label>
+                <div class="col-md-9">
+                  {{ form.coverage_note(class="form-control") }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="classification_level" class="col-md-3 control-label" style="text-align:left; font-size:1.2em">{{ form.classification_level.label(class="sub-class") }}</label>
+                <div class="col-md-9">
+                  {{ form.classification_level(class="form-control") }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="retention_period" class="col-md-3 control-label" style="text-align:left; font-size:1.2em">{{ form.retention_period.label(class="sub-class") }}</label>
+                <div class="col-md-9">
+                  {{ form.retention_period(class="form-control") }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-12 control-label" style="text-align:left; font-size:1.5em">档案资源产权特征</label>
+            </div>
+
+            <div class="form-group"><label for="creator_" class="col-md-3 control-label" style="text-align:left; font-size:1.2em">{{ form.creator_.label(class="sub-class") }}</label>
+                <div class="col-md-9">
+                  {{ form.creator_(class="form-control") }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="publisher" class="col-md-3 control-label" style="text-align:left; font-size:1.2em">{{ form.publisher.label(class="sub-class") }}</label>
+                <div class="col-md-9">
+                  {{ form.publisher(class="form-control") }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="contributor" class="col-md-3 control-label" style="text-align:left; font-size:1.2em">{{ form.contributor.label(class="sub-class") }}</label>
+                <div class="col-md-9">
+                  {{ form.contributor(class="form-control") }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="rights" class="col-md-3 control-label" style="text-align:left; font-size:1.2em">{{ form.rights.label(class="sub-class") }}</label>
+                <div class="col-md-9">
+                  {{ form.rights(class="form-control") }}
+                </div>
+            </div>
+
+             <div class="form-group">
+                <label class="col-md-12 control-label" style="text-align:left; font-size:1.5em">档案资源形式特征</label>
+             </div>
+             <div class="form-group">
+                <label for="date" class="col-md-3 control-label" style="text-align:left; font-size:1.2em">{{ form.date.label(class="sub-class") }}</label>
+                <div class="col-md-9">
+                  {{ form.date(class="form-control") }}
+                </div>
+             </div>
+
+             <div class="form-group">
+                <label class="col-md-12 control-label" style="text-align:left; font-size:1.2em">类型（Type）：</label>
+             </div>
+             <div class="form-group">
+                <label for="version" class="col-md-3 control-label">{{ form.version.label }}</label>
+                <div class="col-md-9">
+                  {{ form.version(class="form-control") }}
+                </div>
+                <label for="record_type" class="col-md-3 control-label">{{ form.record_type.label }}</label>
+                <div class="col-md-9">
+                  {{ form.record_type(class="form-control") }}
+                </div>
+             </div>
+
+             <div class="form-group">
+                <label class="col-md-12 control-label" style="text-align:left; font-size:1.2em">格式（Format）：</label>
+             </div>
+             <div class="form-group">
+                <label for="carrier_type" class="col-md-3 control-label">{{ form.carrier_type.label }}</label>
+                <div class="col-md-9">
+                  {{ form.carrier_type(class="form-control") }}
+                </div>
+                <label for="number" class="col-md-3 control-label">{{ form.number.label }}</label>
+                <div class="col-md-9">
+                  {{ form.number(class="form-control") }}
+                </div>
+                <label for="specification" class="col-md-3 control-label">{{ form.specification.label }}</label>
+                <div class="col-md-9">
+                  {{ form.specification(class="form-control") }}
+                </div>
+             </div>
+             <div class="form-group">
+                <label for="identifier" class="col-md-3 control-label" style="text-align:left; font-size:1.2em">{{ form.identifier.label(class="sub-class") }}</label>
+                <div class="col-md-9">
+                  {{ form.identifier(class="form-control") }}
+                </div>
+             </div>
+        </div>
+        <div class="col-md-offset-5 col-md-7 submit-row">
+            {{ form.submit(class="btn btn-primary")}}
+            <!--<input type="submit" class="btn btn-primary" value="保存">-->
+            <a href="{{ url_for('main.file_manage') }}" class="btn btn-danger" role="button">取消</a>
+        </div>
+    </form>
+
+    <div class="modal fade" id="modal-container-372080" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">新增案卷名</h4>
+                </div>
+                <form action="{{ url_for('main.add_dossier') }}" name="add_dossier" method="POST">
+                <div class="modal-body form-group">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                    <input type="text" class="form-control" name="dossier_name">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                    <button type="submit"  class="btn btn-primary">保存</button>
+                </div>
+                </form>
+            </div>
+                                            <!-- /.modal-content -->
+        </div>
+                                        <!-- /.modal-dialog -->
+    </div>
+</div>
+{% endblock %}

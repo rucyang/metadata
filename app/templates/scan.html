@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% import '_macros.html' as macros %}
+{% block title %} 资源管理 - 首页 {% endblock %}
+{% block page_title %} 档案资源浏览 <small>最新资源</small> {% endblock %}
+{% block page_content %}
+<div class="tabbable" id="tabs-445818">
+<!-- Only required for left/right tabs -->
+    <ul class="nav nav-tabs">
+        <li class="">
+            <a href="{{ url_for('main.scan') }}">最新资源</a>
+        </li>
+        <li class="">
+            <a href="{{ url_for('main.scan_file', file_type='text') }}">文本资源</a>
+        </li>
+        <li class="">
+            <a href="{{ url_for('main.scan_file', file_type='photo') }}">图片资源</a>
+        </li>
+        <li class="">
+            <a href="{{ url_for('main.scan_file', file_type='vidio') }}">视频资源</a>
+        </li>
+        <li class="">
+            <a href="{{ url_for('main.scan_file', file_type='audio') }}">音频资源</a>
+        </li>
+        <li class="">
+            <a href="{{ url_for('main.scan_file', file_type='other') }}">其他类型</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="panel-new">
+            <ul class="list-group">
+            {% for file in files %}
+            <li class="list-group-item my-list">
+                <h3><a href="{{ url_for('main.file_detail', id=file.id) }}">{{ file.title_proper }}</a></h3>
+                <dl class="dl-horizontal">
+                    <dt>上传者</dt>
+                    <dd>{{ file.creator.username }}</dd>
+                    <dt>上传日期</dt>
+                    <dd>
+                       {{ file.date }}
+                    </dd>
+                    <dt>主题</dt>
+                    <dd>
+                        <span class="label label-primary"><a href="{{ url_for('main.search_keyword', keyword=file.key_who, field=1 )}}">{{ file.key_who}}</a></span>
+                        <span class="label label-primary"><a href="{{ url_for('main.search_keyword', keyword=file.key_why, field=2 )}}">{{ file.key_why}}</a></span>
+                        <span class="label label-primary"><a href="{{ url_for('main.search_keyword', keyword=file.key_when, field=3 )}}">{{ file.key_when}}</a></span>
+                        <span class="label label-primary"><a href="{{ url_for('main.search_keyword', keyword=file.key_where, field=4 )}}">{{ file.key_where}}</a></span>
+                        <span class="label label-primary"><a href="{{ url_for('main.search_keyword', keyword=file.key_how, field=5 )}}">{{ file.key_how}}</a></span>
+                        <span class="label label-primary"><a href="{{ url_for('main.search_keyword', keyword=file.key_what, field=6 )}}">{{ file.key_what}}</a></span>
+                    </dd>
+                    <dt>描述</dt>
+                    <dd>{{ file.annotation }}</dd>
+                    <!--<dt>标签</dt>-->
+                    <!--<dd>-->
+                    <!--{% for tag in file.tags %}-->
+                    <!--<span class="label label-primary">-->
+                        <!--<a href="{{ url_for('main.search_keyword', keyword=tag.name) }}">{{ tag.name }}</a>-->
+                    <!--</span>&nbsp;-->
+                    <!--{% endfor %}-->
+                    <!--</dd>-->
+                </dl>
+            </li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="pagination">
+        {{ macros.pagination_widget(pagination, 'main.index')}}
+    </div>
+</div>
+{% endblock %}
+

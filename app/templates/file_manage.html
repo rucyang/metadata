@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% import '_macros.html' as macros %}
+{% block title %} 资源管理 - 首页 {% endblock %}
+{% block page_title %} 档案资源管理 <small>资源列表</small> {% endblock %}
+{% block page_content %}
+
+<div class="">
+    <table class="table table-striped" contenteditable="false">
+        <thead>
+            <tr>
+                <th>档案资源名称</th>
+                <th>主题</th>
+                <th>描述</th>
+                <th>上传者</th>
+                <th>上传时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for file in files %}
+            <tr>
+                <td>{{ file.title_proper }}</td>
+                <td>
+                    <span class="label label-primary"><a href="{{ url_for('main.search_keyword', keyword=file.key_who, field=1 )}}">{{ file.key_who}}</a></span>
+                        <span class="label label-primary"><a href="{{ url_for('main.search_keyword', keyword=file.key_why, field=2 )}}">{{ file.key_why}}</a></span>
+                        <span class="label label-primary"><a href="{{ url_for('main.search_keyword', keyword=file.key_when, field=3 )}}">{{ file.key_when}}</a></span>
+                        <span class="label label-primary"><a href="{{ url_for('main.search_keyword', keyword=file.key_where, field=4 )}}">{{ file.key_where}}</a></span>
+                        <span class="label label-primary"><a href="{{ url_for('main.search_keyword', keyword=file.key_how, field=5 )}}">{{ file.key_how}}</a></span>
+                        <span class="label label-primary"><a href="{{ url_for('main.search_keyword', keyword=file.key_what, field=6 )}}">{{ file.key_what}}</a></span>
+                </td>
+                <td>{{ file.annotation }}</td>
+                <td>{{ file.creator.username }}</td>
+                <td>{{ file.timestamp }}</td>
+                <td>
+                    <a href="{{ url_for('main.file_detail', id=file.id) }}">查看</a>
+                    <a href="{{ url_for('main.edit_file', ID=file.id) }}">编辑</a>
+                    <a href="{{ url_for('main.delete_file', ID=file.id) }}">删除</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="pagination">
+        {{ macros.pagination_widget(pagination, 'main.file_manage')}}
+</div>
+{% endblock %}

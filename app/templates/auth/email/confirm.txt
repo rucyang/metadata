@@ -1,0 +1,12 @@
+尊敬的{{user.username}}，
+
+欢迎来到资源管理平台！
+
+请点击以下链接确认你的账户：
+{{ url_for('auth.confirm', token=token, _external=True) }}
+
+祝好！
+
+资源管理平台项目组
+
+注意：请不要回复此邮件。

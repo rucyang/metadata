@@ -1,0 +1,18 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+
+{{ super() }}
+
+{% if current_user.is_authenticated %}
+
+<h2 style="text-align:center">欢迎来到后台管理系统！</h2>
+<h4 style="text-align:right">返回<a href="/">首页</a></h4>
+
+{% else %}
+
+请<a href="{{ url_for('auth.login') }}">登录</a>
+
+{% endif %}
+
+{% endblock body %}

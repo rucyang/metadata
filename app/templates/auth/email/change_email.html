@@ -1,0 +1,9 @@
+<p>尊敬的{{user.username}}，</p>
+<p>欢迎来到资源管理平台！</p>
+<p>请点击
+<a href="{{ url_for('auth.change_email', token=token, _external=True) }}">这里</a>
+确认您新的邮件地址。
+</p>
+<p>祝好！</p>
+<p>资源管理平台项目组</p>
+<p>注意：请不要回复此邮件。</p>

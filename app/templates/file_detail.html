@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% import '_macros.html' as macros %}
+{% block title %} 资源管理 - 首页 {% endblock %}
+{% block page_title %} 档案资源查看 <small>{{ file.title_proper }}</small> {% endblock %}
+{% block page_content %}
+<div class="tabbable" id="tabs-445818">
+<!-- Only required for left/right tabs -->
+    <ul class="nav nav-tabs">
+        <li class="">
+            <a href="{{ url_for('main.file_detail', id=file.id) }}">详细信息</a>
+        </li>
+        <li class="">
+            <a href="{{ url_for('main.er', id=file.id) }}">语义关系</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="panel-new">
+            <div class="view">
+    <dl class="dl-horizontal">
+        <div class="col-md-6"><dt>正题名</dt>
+            <dd>{{ file.title_proper }}</dd>
+        <dt>并列题名</dt>
+            <dd>{{ file.title_parallel }}</dd>
+        <dt>副题名及说明题名</dt>
+            <dd>{{ file.title_sub }}</dd>
+        <dt>何人</dt>
+            <dd>{{ file.key_who}}</dd>
+        <dt>何故</dt>
+            <dd>{{ file.key_why }}</dd>
+        <dt>何时</dt>
+            <dd>{{ file.key_when }}</dd>
+        <dt>何地</dt>
+            <dd>{{ file.key_where }}</dd>
+        <dt>何方式</dt>
+            <dd>{{ file.key_how }}</dd>
+        <dt>何事</dt>
+            <dd>{{ file.key_what }}</dd>
+        <!--<dt>标签</dt>-->
+            <!--<dd>-->
+                <!--{% for tag in file.tags %}-->
+                <!--<span class="label label-primary">-->
+                    <!--<a href="{{ url_for('main.search_keyword', keyword=tag.name) }}">{{ tag.name }}</a>-->
+                <!--</span>&nbsp;-->
+                <!--{% endfor %}-->
+            <!--</dd>-->
+        <dt>分类号</dt>
+            <dd>{{ file.archive_num }}</dd>
+        <dt>附注</dt>
+            <dd>{{ file.annotation }}</dd>
+        <dt>摘要</dt>
+            <dd>{{ file.summary }}</dd>
+        <dt>全宗或类</dt>
+            <dd>{{ file.dossier }}</dd>
+        <dt>语言</dt>
+            <dd>{{ file.language }}</dd>
+        <dt>相关资源</dt>
+            <dd>{{ file.relation }}</dd>
+        </div>
+        <div class="col-md-6">
+        <dt>档案馆指南</dt>
+            <dd>{{ file.archive_guide }}</dd>
+        <dt>全宗指南</dt>
+            <dd>{{ file.dossier_guide }}</dd>
+        <dt>卷、件内容覆盖范围说明</dt>
+            <dd>{{ file.coverage_note }}</dd>
+        <dt>密级</dt>
+            <dd>{{ file.classification_level }}</dd>
+        <dt>保管期限</dt>
+            <dd>{{ file.retention_period }}</dd>
+        <dt>责任者</dt>
+            <dd>{{ file.creator_ }}</dd>
+        <dt>发布者</dt>
+            <dd>{{ file.publisher }}</dd>
+        <dt>其他责任者</dt>
+            <dd>{{ file.contributor }}</dd>
+        <dt>权限</dt>
+            <dd>{{ file.rights }}</dd>
+        <dt>时间</dt>
+            <dd>{{ file.date }}</dd>
+        <dt>稿本</dt>
+            <dd>{{ file.version }}</dd>
+        <dt>文种</dt>
+            <dd>{{ file.record_type }}</dd>
+        <dt>载体类型</dt>
+            <dd>{{ file.carrier_type }}</dd>
+        <dt>数量及单位</dt>
+            <dd>{{ file.number }}</dd>
+        <dt>规格</dt>
+            <dd>{{ file.specification }}</dd>
+        <dt>档号</dt>
+            <dd>{{ file.identifier }}</dd>
+        </div>
+
+
+
+    </dl>
+</div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

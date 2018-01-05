@@ -1,0 +1,392 @@
+﻿{% extends 'base.html' %}
+{% import '_macros.html' as macros %}
+{% block title %} 资源管理 - 首页 {% endblock %}
+{% block page_title %} 档案资源查看 <small>{{ file.title_proper }}</small> {% endblock %}
+{% block page_content %}
+<style>
+.circle{
+    height: 40px;
+    width: 62px;
+    border: 0px solid #B4E3EF;
+    background-color:#B4E3EF;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 50%
+}
+.circletr{
+	height: 21px;
+	text-align:center;
+	margin:0px;
+	padding:0px;
+}
+.table1 table{
+    margin:0 auto;
+}
+</style>
+<div class="tabbable" id="tabs-445818">
+<!-- Only required for left/right tabs -->
+    <ul class="nav nav-tabs">
+        <li class="">
+            <a href="{{ url_for('main.file_detail', id=file.id) }}">详细信息</a>
+        </li>
+        <li class="">
+            <a href="{{ url_for('main.er', id=file.id) }}">语义关系</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="panel-new">
+
+<div class="table1">
+<table style="text-align:center; with:100%" cellpadding="0" cellspacing="0">
+<tr class="circletr"><!-- 1 -->
+<td width="29"></td><!-- 1 -->
+<td width="29"></td><!-- 2 -->
+<td width="29"></td><!-- 3 -->
+<td colspan="3" style="text-align:right;">{{ file.archive_num }}</td>
+<!-- 4 -->
+<!-- 5 -->
+<!-- 6 -->
+<td width="29"></td><!-- 7 -->
+<td colspan="4" style="text-align:center;">{{ file.identifier}}</td>
+<!-- 8 -->
+<!-- 9 -->
+<!-- 10 -->
+<!-- 11 -->
+<td width="29"></td><!-- 12 -->
+<td width="29"></td><!-- 13 -->
+<td width="29"></td><!-- 14 -->
+<td width="29"></td><!-- 15 -->
+<td width="29"></td><!-- 16 -->
+<td width="29"></td><!-- 17 -->
+<td width="29"></td><!-- 18 -->
+</tr>
+<tr class="circletr"><!-- 2 -->
+<td width="29"></td><!-- 1 -->
+<td colspan="2" style="text-align:center;">{{ file.rights}}</td><!-- 2 -->
+<!-- 3 -->
+<td width="29"></td><!-- 4 -->
+<td width="29" style="text-align:center;border-right: 2px solid #000;"></td><!-- 5 -->
+<td width="29"></td><!-- 6 -->
+<td width="29"></td><!-- 7 -->
+<td width="29"></td><!-- 8 -->
+<td width="29" style="text-align:center;border-right: 2px solid #000;"></td><!-- 9 -->
+<td width="29"></td><!-- 10 -->
+<td width="29"></td><!-- 11 -->
+<td colspan="2" style="text-align:center;">{{ file.language}}</td><!-- 12 -->
+<!-- 13 -->
+<td width="29"></td><!-- 14 -->
+<td width="29"></td><!-- 15 -->
+<td width="29"></td><!-- 16 -->
+<td width="29"></td><!-- 17 -->
+<td width="29"></td><!-- 18 -->
+</tr>
+<tr class="circletr"><!-- 3 -->
+<td width="29"></td><!-- 1 -->
+<td width="29" style="text-align:center;border-right: 2px solid #000;"></td><!-- 2 -->
+<td width="29"></td><!-- 3 -->
+<td width="29"></td><!-- 4 -->
+<td colspan="2" rowspan="2" style="text-align:center;"><div class="circle">分类号</div></td><!-- 5 -->
+<!-- 6 -->
+<td width="29"></td><!-- 7 -->
+<td width="29"></td><!-- 8 -->
+<td colspan="2" rowspan="2" style="text-align:center;"><div class="circle">档号</div></td>
+<!-- 9 -->
+<!-- 10 -->
+<td width="29"></td><!-- 11 -->
+<td width="29" style="text-align:center;border-right: 2px solid #000;"></td><!-- 12 -->
+<td width="29"></td><!-- 13 -->
+<td width="29"></td><!-- 14 -->
+<td colspan="2" rowspan="2" style="text-align:center;"><div class="circle">密级</div></td><!-- 15 -->
+<!-- 16 -->
+<td width="29" style="text-align:center;border-bottom: 2px solid #000;"></td><!-- 17 -->
+<td rowspan="2" style="text-align:center;">{{ file.classification_level }}</td><!-- 18 -->
+</tr>
+<tr class="circletr"><!-- 4 -->
+<td width="29"></td><!-- 1 -->
+<td colspan="2" rowspan="2" style="text-align:center;"><div class="circle">权限</div></td><!-- 2 -->
+<!-- 3 -->
+<td width="29"></td><!-- 4 -->
+<!-- 5 -->
+<!-- 6 -->
+<td width="29"></td><!-- 7 -->
+<td width="29"></td><!-- 8 -->
+<!-- 9 -->
+<!-- 10 -->
+<td width="29"></td><!-- 11 -->
+<td colspan="2" rowspan="2" style="text-align:center;"><div class="circle">语言</div></td><!-- 12 -->
+<!-- 13 -->
+<td width="29"></td><!-- 14 -->
+<!-- 15 -->
+<!-- 16 -->
+<td width="29"></td><!-- 17 -->
+<!-- 18 -->
+</tr>
+<tr class="circletr"><!-- 5 -->
+<td width="29"></td><!-- 1 -->
+<!-- 2 -->
+<!-- 3 -->
+<td colspan="2" style="text-align:center;">{{ file.key_why}}</td><!-- 4 -->
+<!-- 5 -->
+<td width="29"></td><!-- 6 -->
+<td colspan="2" rowspan="2" style="text-align:center;"><div class="circle">何故</div></td><!-- 7 -->
+<!-- 8 -->
+<td width="29" style="text-align:center;border-right: 2px solid #00f;"></td><!-- 9 -->
+<td width="29"></td><!-- 10 -->
+<td width="29"></td><!-- 11 -->
+<!-- 12 -->
+<!-- 13 -->
+<td width="29"></td><!-- 14 -->
+<td width="29"></td><!-- 15 -->
+<td width="29"></td><!-- 16 -->
+<td width="29"></td><!-- 17 -->
+<td width="29"></td><!-- 18 -->
+</tr>
+<tr class="circletr"><!-- 6 -->
+<td width="29"></td><!-- 1 -->
+<td width="29"></td><!-- 2 -->
+<td width="29"></td><!-- 3 -->
+<td width="29"></td><!-- 4 -->
+<td width="29" style="text-align:center;border-top: 2px solid #000;"></td><!-- 5 -->
+<td width="29" style="text-align:center;border-top: 2px solid #000;"></td><!-- 6 -->
+<!-- 7 -->
+<!-- 8 -->
+<td width="29" style="text-align:center;border-right: 2px solid #00f;"></td><!-- 9 -->
+<td width="29"></td><!-- 10 -->
+<td width="29"></td><!-- 11 -->
+<td width="29"></td><!-- 12 -->
+<td width="29"></td><!-- 13 -->
+<td width="29"></td><!-- 14 -->
+<td width="29"></td><!-- 15 -->
+<td width="29"></td><!-- 16 -->
+<td width="29"></td><!-- 17 -->
+<td width="29"></td><!-- 18 -->
+</tr>
+<tr class="circletr"><!-- 7 -->
+<td width="29"></td><!-- 1 -->
+<td colspan="2" style="text-align:center;">{{ file.key_who}}</td>
+<!-- 2 -->
+<!-- 3 -->
+<td width="29"></td><!-- 4 -->
+<td colspan="2" rowspan="2" style="text-align:center;"><div class="circle">何人</div></td><!-- 5 -->
+<!-- 6 -->
+<td width="29" style="text-align:center;border-right: 2px solid #00f;border-bottom: 2px solid #00f;"></td><!-- 7 -->
+<td width="29"></td><!-- 8 -->
+<td width="29" style="text-align:center;border-right: 2px solid #00f;"></td><!-- 9 -->
+<td width="29"></td><!-- 10 -->
+<td width="29"></td><!-- 11 -->
+<td width="29" style="text-align:center;border-bottom: 2px solid #00f;"></td><!-- 12 -->
+<td colspan="2" rowspan="2" style="text-align:center;"><div class="circle">何时</div></td><!-- 13 -->
+<!-- 14 -->
+<td width="29"></td><!-- 15 -->
+<td colspan="3" style="text-align:left;">{{ file.key_when}}</td><!-- 16 -->
+<!-- 17 -->
+<!-- 18 -->
+</tr>
+<tr class="circletr"><!-- 8 -->
+<td width="29"></td><!-- 1 -->
+<td width="29"></td><!-- 2 -->
+<td width="29" style="text-align:center;border-top: 2px solid #000;"></td><!-- 3 -->
+<td width="29" style="text-align:center;border-top: 2px solid #000;"></td><!-- 4 -->
+<!-- 5 -->
+<!-- 6 -->
+<td width="29"></td><!-- 7 -->
+<td colspan="4" rowspan="3" style="text-align:center; border:3px solid #3388be;">{{ file.title_proper}}</td><!-- 8 -->
+<!-- 9 -->
+<!-- 10 -->
+<!-- 11 -->
+<td width="29"></td><!-- 12 -->
+<!-- 13 -->
+<!-- 14 -->
+<td width="29" style="text-align:center;border-top: 2px solid #000;"></td><!-- 15 -->
+<td width="29"></td><!-- 16 -->
+<td width="29"></td><!-- 17 -->
+<td width="29"></td><!-- 18 -->
+</tr>
+<tr class="circletr"><!-- 9 -->
+<td width="29"></td><!-- 1 -->
+<td width="29"></td><!-- 2 -->
+<td width="29"></td><!-- 3 -->
+<td width="29"></td><!-- 4 -->
+<td width="29"></td><!-- 5 -->
+<td width="29"></td><!-- 6 -->
+<td width="29"></td><!-- 7 -->
+<!-- 8 -->
+<!-- 9 -->
+<!-- 10 -->
+<!-- 11 -->
+<td width="29"></td><!-- 12 -->
+<td width="29"></td><!-- 13 -->
+<td width="29"></td><!-- 14 -->
+<td width="29"></td><!-- 15 -->
+<td width="29"></td><!-- 16 -->
+<td colspan="2" rowspan="2" style="text-align:center;"><div class="circle">保存期</div></td><!-- 17 -->
+<!-- 18 -->
+</tr>
+<tr class="circletr"><!-- 10 -->
+<td colspan="2" rowspan="2" style="text-align:center;"><div class="circle">责任者</div></td><!-- 1 -->
+<!-- 2 -->
+<td width="29"></td><!-- 3 -->
+<td width="29"></td><!-- 4 -->
+<!-- 5 -->
+<td colspan="2" rowspan="2" style="text-align:center;"><div class="circle">何事</div></td><!-- 6 -->
+<td width="29" style="text-align:center;border-bottom: 2px solid #00f;"></td><!-- 7 -->
+<!-- 8 -->
+<!-- 9 -->
+<!-- 10 -->
+<!-- 11 -->
+<td width="29" style="text-align:center;border-bottom: 2px solid #00f;"></td><!-- 12 -->
+<td colspan="2" rowspan="2" style="text-align:center;"><div class="circle">何地</div></td><!-- 13 -->
+<!-- 14 -->
+<td width="29" style="text-align:center;border-bottom: 2px solid #000;"></td><!-- 15 -->
+<td rowspan="2" style="text-align:center;">{{ file.key_where}}</td><!-- 16 -->
+<!-- 17 -->
+<!-- 18 -->
+</tr>
+<tr class="circletr"><!-- 11 -->
+<!-- 1 -->
+<!-- 2 -->
+<td width="29"></td><!-- 3 -->
+<td width="29"></td><!-- 4 -->
+<!-- 5 -->
+<!-- 6 -->
+<td width="29"></td><!-- 7 -->
+<td width="29"></td><!-- 8 -->
+<td width="29" style="text-align:center;border-right: 2px solid #00f;"></td><!-- 9 -->
+<td width="29"></td><!-- 10 -->
+<td width="29" style="text-align:center;border-right: 2px solid #00f;"></td><!-- 11 -->
+<td width="29"></td><!-- 12 -->
+<!-- 13 -->
+<!-- 14 -->
+<td width="29"></td><!-- 15 -->
+<!-- 16 -->
+<td width="29" style="text-align:center;border-right: 2px solid #000;"></td><!-- 17 -->
+<td width="29"></td><!-- 18 -->
+</tr>
+<tr class="circletr"><!-- 12 -->
+<td width="29" style="text-align:center;border-right: 2px solid #000;"></td><!-- 1 -->
+<td width="29"></td><!-- 2 -->
+<td colspan="2" rowspan="2" style="text-align:center;"><div class="circle">发布者</div></td><!-- 3 -->
+<!-- 4 -->
+<td width="29" style="text-align:center;border-right: 2px solid #000;"></td><!-- 5 -->
+<td width="29"></td><!-- 6 -->
+<td width="29"></td><!-- 7 -->
+<td width="29"></td><!-- 8 -->
+<td width="29" style="text-align:center;border-right: 2px solid #00f;"></td><!-- 9 -->
+<td width="29"></td><!-- 10 -->
+<td colspan="2" rowspan="2" style="text-align:center;"><div class="circle">何方式</div></td><!-- 11 -->
+<!-- 12 -->
+<td width="29"></td><!-- 13 -->
+<td colspan="2"  rowspan="2" style="text-align:left;">{{ file.key_how}}</td><!-- 14 -->
+<!-- 15 -->
+<td width="29"></td><!-- 16 -->
+<td colspan="2" style="text-align:center;">{{ file.retention_period}}</td><!-- 17 -->
+<!-- 18 -->
+</tr>
+<tr class="circletr"><!-- 13 -->
+<td colspan="2" rowspan="2" style="text-align:center;">{{ file.creator_}}</td><!-- 1 -->
+<!-- 2 -->
+<!-- 3 -->
+<!-- 4 -->
+<td colspan="3" style="text-align:left;">{{ file.key_what}}</td><!-- 5 -->
+<!-- 6 -->
+<!-- 7 -->
+<td width="29"></td><!-- 8 -->
+<td width="29" style="text-align:center;border-right: 2px solid #00f;"></td><!-- 9 -->
+<td width="29"></td><!-- 10 -->
+<!-- 11 -->
+<!-- 12 -->
+<td width="29" style="text-align:center;border-top: 2px solid #000;"></td><!-- 13 -->
+<!-- 14 -->
+<!-- 15 -->
+<td colspan="2" rowspan="2" style="text-align:center;"><div class="circle">文种</div></td><!-- 16 -->
+<!-- 17 -->
+<td width="29"></td><!-- 18 -->
+</tr>
+<tr class="circletr"><!-- 14 -->
+<!-- 1 -->
+<!-- 2 -->
+<td width="29" style="text-align:center;border-right: 2px solid #000;"></td><!-- 3 -->
+<td width="29"></td><!-- 4 -->
+<td colspan="2" rowspan="2" style="text-align:center;"><div class="circle">其他责任者</div></td><!-- 5 -->
+<!-- 6 -->
+<td width="29"></td><!-- 7 -->
+<td width="29"></td><!-- 8 -->
+<td colspan="2" rowspan="2" style="text-align:center;"><div class="circle">全宗</div></td><!-- 9 -->
+<!-- 10 -->
+<td width="29"></td><!-- 11 -->
+<td width="29"></td><!-- 12 -->
+<td colspan="2" rowspan="2" style="text-align:center;"><div class="circle">类型</div></td><!-- 13 -->
+<!-- 14 -->
+<td width="29"></td><!-- 15 -->
+<!-- 16 -->
+<!-- 17 -->
+<td width="29"></td><!-- 18 -->
+</tr>
+<tr class="circletr"><!-- 15 -->
+<td width="29"></td><!-- 1 -->
+<td width="29"></td><!-- 2 -->
+<td colspan="2" rowspan="2" style="text-align:center;">{{ file.publisher}}</td><!-- 3 -->
+<!-- 4 -->
+<!-- 5 -->
+<!-- 6 -->
+<td width="29"></td><!-- 7 -->
+<td width="29"></td><!-- 8 -->
+<!-- 9 -->
+<!-- 10 -->
+<td width="29"></td><!-- 11 -->
+<td width="29"></td><!-- 12 -->
+<!-- 13 -->
+<!-- 14 -->
+<td width="29"></td><!-- 15 -->
+<td width="29" style="text-align:center;border-right: 2px solid #000;"></td><!-- 16 -->
+<td width="29"></td><!-- 17 -->
+<td width="29"></td><!-- 18 -->
+</tr>
+<tr class="circletr"><!-- 16 -->
+<td width="29"></td><!-- 1 -->
+<td width="29"></td><!-- 2 -->
+<!-- 3 -->
+<!-- 4 -->
+<td width="29" style="text-align:center;border-right: 2px solid #000;"></td><!-- 5 -->
+<td width="29"></td><!-- 6 -->
+<td width="29"></td><!-- 7 -->
+<td width="29"></td><!-- 8 -->
+<td width="29" style="text-align:center;border-right: 2px solid #000;"></td><!-- 9 -->
+<td width="29"></td><!-- 10 -->
+<td width="29"></td><!-- 11 -->
+<td width="29"></td><!-- 12 -->
+<td width="29" style="text-align:center;border-right: 2px solid #000;"></td><!-- 13 -->
+<td width="29"></td><!-- 14 -->
+<td width="29"></td><!-- 15 -->
+<td colspan="2" style="text-align:center;">{{ file.record_type}}</td><!-- 16 -->
+<!-- 17 -->
+<td width="29"></td><!-- 18 -->
+</tr>
+<tr class="circletr"><!-- 17 -->
+<td width="29"></td><!-- 1 -->
+<td width="29"></td><!-- 2 -->
+<td width="29"></td><!-- 3 -->
+<td colspan="4" style="text-align:center;">{{ file.contributor}}</td><!-- 4 -->
+<!-- 5 -->
+<!-- 6 -->
+<!-- 7 -->
+<td width="29"></td><!-- 8 -->
+<td colspan="2" style="text-align:center;">{{ file.dossier}}</td><!-- 9 -->
+<!-- 10 -->
+<td width="29"></td><!-- 11 -->
+<td width="29"></td><!-- 12 -->
+<td colspan="2" style="text-align:center;">{{ file.carrier_type}}</td><!-- 13 -->
+<!-- 14 -->
+<td width="29"></td><!-- 15 -->
+<td width="29"></td><!-- 16 -->
+<td width="29"></td><!-- 17 -->
+<td width="29"></td><!-- 18 -->
+</tr>
+</table>
+</div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

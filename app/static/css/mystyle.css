@@ -1,0 +1,62 @@
+.my-list {
+    margin-top: 10px;
+}
+
+.label-primary {
+    background-color: #f7e307;
+}
+.page-header {
+    margin: 20px 0 20px;
+}
+.linear{  
+FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#b8c4cb,endColorStr=red); /*IE 6 7 8*/ 
+background: -ms-linear-gradient(top, #fff,  #F0F8FF);        /* IE 10 */
+background:-moz-linear-gradient(top,#fff,#F0F8FF);/*火狐*/ 
+background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#fff), to(#F0F8FF));/*谷歌*/ 
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#F0F8FF));  /* Safari 4-5, Chrome 1-9*/
+background: -webkit-linear-gradient(top, #fff, #F0F8FF);   /*Safari5.1 Chrome 10+*/
+background: -o-linear-gradient(top, #fff, #F0F8FF);  /*Opera 11.10+*/
+} 
+
+ul.unstyled {
+    list-style: none;
+    padding: 0;
+}
+footer h6 {
+    color: white;
+}  
+.row-footer {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+
+.overlay-fluid-block {
+    background-color: rgba(0, 0, 0, 0.15);
+    width: 100%;
+}
+
+.home{
+    background:url(../images/homebg.jpg) no-repeat center center;
+    color:#000;
+    background-size:cover;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    -ms-background-size:cover;
+}
+.home-wrapper{
+    padding:180px 0px;
+    overflow:hidden;
+}
+.home-content h1{
+    font-size:72px;
+    font-weight:700;
+    margin-bottom: 30px;
+    color: #fff;
+}
+.home-content p{
+    font-size:38px;
+    margin-bottom: 30px;
+    color: #ffff00;
+}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}资源管理 - 确认账户{% endblock %}
+{% block page_title %} 请确认账户 {% endblock %}
+{% block page_content %}
+<div class="" style="height: 348px">
+<div>
+    <h1>
+        您好, {{ current_user.username }}！
+    </h1>
+    <h3>您还没有确认您的账户。</h3>
+    <p>
+        您必须确认您的账户才能访问该站点。
+        请查看您的邮箱，你应该收到一封含有确认链接的邮件。
+    </p>
+    <p>
+        重新生成确认邮件？
+        <a href="{{ url_for('auth.resend_confirmation') }}" target="_blank">点击这里</a>
+    </p>
+</div>
+</div>
+{% endblock %}

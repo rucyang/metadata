@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block title %} 资源管理系统 - 编辑个人资料 {% endblock %}
+{% block page_title %} 编辑个人资料 {% endblock %}
+{% block page_content %}
+<div class="col-md-4">
+{{ wtf.quick_form(form) }}
+</div>
+
+
+{% endblock %}
