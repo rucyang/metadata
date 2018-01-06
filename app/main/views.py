@@ -289,17 +289,17 @@ def search_keyword(field, keyword):
     print(field)
     print(keyword)
     if field == '1':
-        results = File.query.filter_by(key_who=keyword).all()
+        results = File.query.filter_by(verified=False).filter_by(key_who=keyword).all()
     elif field == '2':
-        results = File.query.filter_by(key_why=keyword).all()
+        results = File.query.filter_by(verified=False).filter_by(key_why=keyword).all()
     elif field == '3':
-        results = File.query.filter_by(key_when=keyword).all()
+        results = File.query.filter_by(verified=False).filter_by(key_when=keyword).all()
     elif field == '4':
-        results = File.query.filter_by(key_where=keyword).all()
+        results = File.query.filter_by(verified=False).filter_by(key_where=keyword).all()
     elif field == '5':
-        results = File.query.filter_by(key_how=keyword).all()
+        results = File.query.filter_by(verified=False).filter_by(key_how=keyword).all()
     else:
-        results = File.query.filter_by(key_what=keyword).all()
+        results = File.query.filter_by(verified=False).filter_by(key_what=keyword).all()
     return render_template('search_result.html',
                            files=results)
 
