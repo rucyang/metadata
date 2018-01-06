@@ -477,7 +477,8 @@ class FileView(AdminModelView):
         "rights",
         "date",
         "carrier_type",
-        "identifier"
+        "identifier",
+        "verified"
     ]
 
     column_labels = dict(
@@ -485,7 +486,7 @@ class FileView(AdminModelView):
         timestamp="上传时间",
         file_path="资源路径",
         file_name="档案资源名",
-        verified="是否通过审核",
+        verified="是否删除",
         creator_id="上传者ID",
         creator="上传者",
         title_proper="正题名",
@@ -523,50 +524,6 @@ class FileView(AdminModelView):
         identifier="档号"
     )
     # inline_models = (Tag,)
-    # column_labels = dict(
-    #     tags='标签',
-    #     timestamp='上传时间',
-    #     file_path='保存路径',
-    #     verified='是否通过审核',
-    #     title='题名',
-    #     subject='主题',
-    #     description='描述',
-    #     publishers='出版者',
-    #     contributors='贡献者',
-    #     date='存档日期',
-    #     identifier='标识符',
-    #     format='格式',
-    #     source='档案来源',
-    #     location='地理位置',
-    #     rights='使用权限',
-    #     creator='创建者',
-    #     file_type='载体类型',
-    #     language='语言',
-    #     archive_num='档案文号',
-    #     confidentiality='密级',
-    #     department='存档单位'
-    # )
-
-    # column_list = (
-    #     'title',
-    #     'subject',
-    #     'tags',
-    #     'language',
-    #     'archive_num',
-    #     'confidentiality',
-    #     'department',
-    #     'publishers',
-    #     'contributors',
-    #     'source',
-    #     'file_type',
-    #     'date'
-    # )
-
-    # column_exclude_list = (
-    #     'timestamp',
-    #     'file_path',
-    #     'identifier'
-    #     )
 
 
 class TagView(AdminModelView):
