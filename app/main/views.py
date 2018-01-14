@@ -18,9 +18,10 @@ from ..decorators import admin_required
 def index():
     return render_template('index.html')
 
-@main.route('/knowledge')
-def knowledge():
-    return render_template('knowledge.html')
+@main.route('/knowledge/<int:id>', methods=['GET'])
+def knowledge(id):
+    file = File.query.get_or_404(id)
+    return render_template('knowledge.html', file=file)
 
 @main.route('/scan')
 def scan():

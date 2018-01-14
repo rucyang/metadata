@@ -1,7 +1,7 @@
 ﻿{% extends 'base.html' %}
 {% import '_macros.html' as macros %}
 {% block title %} 资源管理 - 首页 {% endblock %}
-{% block page_title %} 档案资源查看 <small>知识导航</small> {% endblock %}
+{% block page_title %} 档案资源查看 <small>{{ file.title_proper }</small> {% endblock %}
 {% block page_content %}
 <style type="text/css">
 body{
@@ -38,7 +38,7 @@ margin:0 auto;
             <a href="{{ url_for('main.er', id=file.id) }}">语义关系</a>
         </li>
         <li class="">
-            <a href="{{ url_for('main.knowledge') }}">知识导航</a>
+            <a href="{{ url_for('main.knowledge', id=file.id) }}">知识导航</a>
         </li>
     </ul>
     <div class="tab-content">
