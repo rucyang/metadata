@@ -126,20 +126,20 @@ class FileMetaDataForm(FlaskForm):
 class EditFileMetaDataForm(FlaskForm):
     """docstring for FileMetaDatForm"""
 
-    file_name = StringField("档案资源名：")
+    file_name = StringField("档案资源名")
 
-    title_proper = StringField('正题名：')
+    title_proper = StringField('正题名')
     title_parallel = StringField('并列题名：')
     title_sub = StringField('副题名及说明题名文字：')
 
-    key_who = StringField('何人：')
+    key_who = StringField('何人')
     key_why = StringField('何故：')
-    key_when = StringField('何时：')
-    key_where = StringField('何地：')
+    key_when = StringField('何时')
+    key_where = StringField('何地')
     key_how = StringField('何方式：')
-    key_what = StringField('何事：')
+    key_what = StringField('何事')
 
-    archive_num = StringField('分类号：', validators=[Required()])
+    archive_num = StringField('分类号', validators=[Required()])
 
     annotation = TextAreaField('附注：')
     summary = TextAreaField('提要：')
@@ -157,12 +157,12 @@ class EditFileMetaDataForm(FlaskForm):
     classification_level = SelectField('密级：', coerce=int)
     retention_period = StringField('保管期限：')
 
-    creator_ = StringField('责任者：')
+    creator_ = StringField('责任者')
     publisher = StringField('发布者：')
     contributor = StringField('贡献者：')
     rights = StringField('权限：')
 
-    date = StringField('时间：')
+    date = StringField('时间')
     version = StringField('版本：')
     record_type = StringField('文种：')
 
@@ -171,7 +171,7 @@ class EditFileMetaDataForm(FlaskForm):
     specification = StringField('规格：')
 
     record_num = StringField('文件编号：')
-    identifier = StringField('档号：')
+    identifier = StringField('档号')
 
     submit = SubmitField('保存')
 
