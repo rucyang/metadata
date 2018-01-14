@@ -18,6 +18,10 @@ from ..decorators import admin_required
 def index():
     return render_template('index.html')
 
+@main.route('/knowledge')
+def knowledge():
+    return render_template('knowledge.html')
+
 @main.route('/scan')
 def scan():
     page = request.args.get('page', 1, type=int)
@@ -145,6 +149,7 @@ def upload_file():
             carrier_type=carrier_type,
             number=form.number.data,
             specification=form.specification.data,
+            record_num=form.record_num,
             identifier=form.identifier.data
         )
 
@@ -204,6 +209,7 @@ def edit_file(ID):
         file.record_type = form.record_type.data
         file.number = form.number.data
         file.specification = form.specification.data
+        file.record_num = form.record_num.data
         file.identifier = form.identifier.data
         db.session.add(file)
         db.session.commit()
@@ -240,6 +246,7 @@ def edit_file(ID):
     form.record_type.data = file.record_type
     form.number.data = file.number
     form.specification.data = file.specification
+    form.record_num.data = file.record_num
     form.identifier.data = file.identifier
 
     return render_template("edit_file.html", form=form, ID=ID)

@@ -15,7 +15,9 @@
     {{ form.csrf_token }}
         <div class="cok-md-12">
             <div class="form-group">
-                <label for="file_path" class="col-md-2 control-label" style="text-align:left; font-size:1.2em">{{ form.file_path.label(class="sub-class") }}</label>
+                <label for="file_path" class="col-md-2 control-label" style="text-align:left; font-size:1.2em">{{ form.file_path.label(class="sub-class") }}
+                    <strong style="color: red">*</strong>：
+                </label>
                 <div class="col-md-4">
                   {{ form.file_path(class="form-control") }}
                 </div>
@@ -34,7 +36,7 @@
 
             <div class="form-group">
                 <label for="title" class="col-md-3 control-label">{{ form.title_proper.label }}
-                    <!--<strong style="color: red">*</strong>-->
+                    <strong style="color: red">*</strong>：
                 </label>
                 <div class="col-md-9">
                   {{ form.title_proper(class="form-control") }}
@@ -66,7 +68,9 @@
             </div>
 
             <div class="form-group">
-                <label for="keyword" class="col-md-3 control-label">{{ form.key_who.label }}</label>
+                <label for="keyword" class="col-md-3 control-label">{{ form.key_who.label }}
+                    <strong style="color: red">*</strong>：
+                </label>
                 <div class="col-md-9">
                   {{ form.key_who(class="form-control") }}
                 </div>
@@ -82,7 +86,9 @@
                   <strong style="color: red">{{ form.key_why.errors[0] }}</strong>
                 </div>
 
-                <label for="keyword" class="col-md-3 control-label">{{ form.key_when.label }}</label>
+                <label for="keyword" class="col-md-3 control-label">{{ form.key_when.label }}
+                    <strong style="color: red">*</strong>：
+                </label>
                 <div class="col-md-9">
                   {{ form.key_when(class="form-control") }}
                 </div>
@@ -90,7 +96,9 @@
                   <strong style="color: red">{{ form.key_when.errors[0] }}</strong>
                 </div>
 
-                <label for="keyword" class="col-md-3 control-label">{{ form.key_where.label }}</label>
+                <label for="keyword" class="col-md-3 control-label">{{ form.key_where.label }}
+                    <strong style="color: red">*</strong>：
+                </label>
                 <div class="col-md-9">
                   {{ form.key_where(class="form-control") }}
                 </div>
@@ -106,7 +114,9 @@
                   <strong style="color: red">{{ form.key_how.errors[0] }}</strong>
                 </div>
 
-                <label for="keyword" class="col-md-3 control-label">{{ form.key_what.label }}</label>
+                <label for="keyword" class="col-md-3 control-label">{{ form.key_what.label }}
+                    <strong style="color: red">*</strong>：
+                </label>
                 <div class="col-md-9">
                   {{ form.key_what(class="form-control") }}
                 </div>
@@ -116,7 +126,9 @@
             </div>
 
             <div class="form-group">
-                <label for="archive_num" class="col-md-3 control-label" style="text-align:left;font-size:1.2em">{{ form.archive_num.label(class="sub-class") }}</label>
+                <label for="archive_num" class="col-md-3 control-label" style="text-align:left;font-size:1.2em">{{ form.archive_num.label(class="sub-class") }}
+                    <strong style="color: red">*</strong>：
+                </label>
                 <div class="col-md-9">
                   {{ form.archive_num(class="form-control") }}
                 </div>
@@ -195,26 +207,18 @@
             </div>
 
             <div class="form-group">
-                <label for="classification_level" class="col-md-3 control-label" style="text-align:left; font-size:1.2em">{{ form.classification_level.label(class="sub-class") }}</label>
-                <div class="col-md-9">
-                  {{ form.classification_level(class="form-control") }}
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="retention_period" class="col-md-3 control-label" style="text-align:left; font-size:1.2em">{{ form.retention_period.label(class="sub-class") }}</label>
-                <div class="col-md-9">
-                  {{ form.retention_period(class="form-control") }}
-                </div>
-            </div>
-
-            <div class="form-group">
                 <label class="col-md-12 control-label" style="text-align:left; font-size:1.5em">档案资源产权特征</label>
             </div>
 
-            <div class="form-group"><label for="creator_" class="col-md-3 control-label" style="text-align:left; font-size:1.2em">{{ form.creator_.label(class="sub-class") }}</label>
+            <div class="form-group">
+                <label for="creator_" class="col-md-3 control-label" style="text-align:left; font-size:1.2em">{{ form.creator_.label(class="sub-class") }}
+                    <strong style="color: red">*</strong>：
+                </label>
                 <div class="col-md-9">
                   {{ form.creator_(class="form-control") }}
+                </div>
+                <div class="col-md-offset-3 col-md-9">
+                  <strong style="color: red">{{ form.creator_.errors[0] }}</strong>
                 </div>
             </div>
             <div class="form-group">
@@ -239,10 +243,28 @@
              <div class="form-group">
                 <label class="col-md-12 control-label" style="text-align:left; font-size:1.5em">档案资源形式特征</label>
              </div>
+            <div class="form-group">
+                <label for="classification_level" class="col-md-3 control-label" style="text-align:left; font-size:1.2em">{{ form.classification_level.label(class="sub-class") }}</label>
+                <div class="col-md-9">
+                  {{ form.classification_level(class="form-control") }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="retention_period" class="col-md-3 control-label" style="text-align:left; font-size:1.2em">{{ form.retention_period.label(class="sub-class") }}</label>
+                <div class="col-md-9">
+                  {{ form.retention_period(class="form-control") }}
+                </div>
+            </div>
              <div class="form-group">
-                <label for="date" class="col-md-3 control-label" style="text-align:left; font-size:1.2em">{{ form.date.label(class="sub-class") }}</label>
+                <label for="date" class="col-md-3 control-label" style="text-align:left; font-size:1.2em">{{ form.date.label(class="sub-class") }}
+                    <strong style="color: red">*</strong>：
+                </label>
                 <div class="col-md-9">
                   {{ form.date(class="form-control") }}
+                </div>
+                <div class="col-md-offset-3 col-md-9">
+                  <strong style="color: red">{{ form.date.errors[0] }}</strong>
                 </div>
              </div>
 
@@ -277,10 +299,21 @@
                   {{ form.specification(class="form-control") }}
                 </div>
              </div>
+            <div class="form-group">
+                <label for="record_num" class="col-md-3 control-label" style="text-align:left; font-size:1.2em">{{ form.record_num.label(class="sub-class") }}</label>
+                <div class="col-md-9">
+                  {{ form.record_num(class="form-control") }}
+                </div>
+             </div>
              <div class="form-group">
-                <label for="identifier" class="col-md-3 control-label" style="text-align:left; font-size:1.2em">{{ form.identifier.label(class="sub-class") }}</label>
+                <label for="identifier" class="col-md-3 control-label" style="text-align:left; font-size:1.2em">{{ form.identifier.label(class="sub-class") }}
+                    <strong style="color: red">*</strong>：
+                </label>
                 <div class="col-md-9">
                   {{ form.identifier(class="form-control") }}
+                </div>
+                <div class="col-md-offset-3 col-md-9">
+                  <strong style="color: red">{{ form.identifier.errors[0] }}</strong>
                 </div>
              </div>
         </div>

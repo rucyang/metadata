@@ -194,6 +194,9 @@ class File(db.Model):
     number = db.Column(db.String(128))
     specification = db.Column(db.String(128))
 
+    # 文件编号
+    record_num = db.Column(db.String(128))
+
     # 档号
     identifier = db.Column(db.String(128))
 
@@ -521,6 +524,7 @@ class FileView(AdminModelView):
         carrier_type="载体类型",
         number="数量及单位",
         specification="规格",
+        record_num="文件编号",
         identifier="档号"
     )
     # inline_models = (Tag,)
