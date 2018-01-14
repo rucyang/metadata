@@ -1,16 +1,16 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+﻿{% extends 'base.html' %}
+{% import '_macros.html' as macros %}
+{% block title %} 资源管理 - 首页 {% endblock %}
+{% block page_title %} 档案资源查看 <small>{{ file.title_proper }}</small> {% endblock %}
+{% block page_content %}
 <style type="text/css">
 body{
 text-align:center
-} 
+}
 .circle{
 height: 40px;
 width: 62px;
-border: 1px solid #B4E3EF; 
+border: 1px solid #B4E3EF;
 background-color:#B4E3EF;
 display: table-cell;
 vertical-align: middle;
@@ -27,8 +27,6 @@ border-radius: 50%
 margin:0 auto;
 }
 </style>
-</head>
-<body>
 <div class="table1">
 <table style="text-align:center;background:white;border:0px solid #888" cellpadding="0" cellspacing="1">
 <tr class="circletr"><!-- 1 -->
@@ -649,5 +647,5 @@ margin:0 auto;
 </tr>
 </table>
 </div>
-</body>
-</html>
+{% endblock %}
+
