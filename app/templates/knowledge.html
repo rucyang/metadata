@@ -27,6 +27,23 @@ border-radius: 50%
 margin:0 auto;
 }
 </style>
+
+<div class="tabbable" id="tabs-445818">
+<!-- Only required for left/right tabs -->
+    <ul class="nav nav-tabs">
+        <li class="">
+            <a href="{{ url_for('main.file_detail', id=file.id) }}">详细信息</a>
+        </li>
+        <li class="">
+            <a href="{{ url_for('main.er', id=file.id) }}">语义关系</a>
+        </li>
+        <li class="">
+            <a href="{{ url_for('main.knowledge') }}">知识导航</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="panel-new">
+
 <div class="table1">
 <table style="text-align:center;background:white;border:0px solid #888" cellpadding="0" cellspacing="1">
 <tr class="circletr"><!-- 1 -->
@@ -646,6 +663,9 @@ margin:0 auto;
 <td width="45"></td><!-- 20 -->
 </tr>
 </table>
+</div>
+        </div>
+    </div>
 </div>
 {% endblock %}
 
