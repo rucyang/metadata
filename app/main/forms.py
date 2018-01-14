@@ -170,6 +170,7 @@ class EditFileMetaDataForm(FlaskForm):
     number = StringField('数量及单位：')
     specification = StringField('规格：')
 
+    record_num = StringField('文件编号：')
     identifier = StringField('档号：')
 
     submit = SubmitField('保存')
