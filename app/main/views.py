@@ -269,7 +269,7 @@ def file_detail(id):
 
 @main.route('/file-profile/<file_name>', methods=["GET", "POST"])
 def file_detail_by_name(file_name):
-    file = File.query.get_or_404(file_name)
+    file = File.query.filter_by(file_name=file_name).first()
     return render_template('file_detail.html', file=file)
 
 @main.route('/file-profile/<int:id>/er', methods=["GET"])
